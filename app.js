@@ -1,7 +1,8 @@
 "use strict";
 
 var http = require('http');
-
+http.globalAgent.maxSockets = 1000000000;
+var server = http.Server();
 var env = process.env;
 var url = require('url');
 var fs = require('fs');
@@ -31,7 +32,10 @@ http.get(requestOptions, function(res) {
     let content = 'module.exports = ' + responseBody;
     console.log(content);
     fs.writeFile("configuration.js", content, 'utf8', function(err) {
-      require('./lib/core/timerScheduler').run(true);
+      server.listen(process.env.PORT || 8080, function () {
+        console.log('~~ server started at ', this.address().address, ':', this.address().port)
+        require('./lib/core/timerScheduler').run(true);
+      })
     });
   });
 
