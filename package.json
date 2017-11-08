@@ -5,7 +5,7 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node appTimer.js"
+    "start": "node app.js"
   },
   "author": "Simon Louvet <simon.louvet.zen@gmail.com> && Boceno Alexandre <bocenoalex@gmail.com>",
   "license": "GNUV3",
