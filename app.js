@@ -31,7 +31,7 @@ http.get(requestOptions, function(res) {
     let content = 'module.exports = ' + responseBody;
     console.log(content);
     fs.writeFile("configuration.js", content, 'utf8', function(err) {
-      require('./timerScheduler').run(true);
+      require('./lib/core/timerScheduler').run(true);
     });
   });
 

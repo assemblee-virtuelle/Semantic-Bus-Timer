@@ -14,6 +14,7 @@
     "https": "latest",
     "jwt-simple": "^0.5.1",
     "moment": "^2.18.1",
+    "mongoose": "^4.10.5",
     "url-parse": "^1.1.9"
   }
 }
