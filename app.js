@@ -2,7 +2,11 @@
 
 var http = require('http');
 http.globalAgent.maxSockets = 1000000000;
-var server = http.Server();
+const requestHandler = (request, response) => {
+  console.log(request.url)
+  response.end('Hello Node.js Server!')
+}
+var server = http.Server(requestHandler);
 var env = process.env;
 var url = require('url');
 var fs = require('fs');
