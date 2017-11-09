@@ -36,7 +36,7 @@ http.get(requestOptions, function(res) {
     let content = 'module.exports = ' + responseBody;
     console.log(content);
     fs.writeFile("configuration.js", content, 'utf8', function(err) {
-      server.listen(process.env.PORT || 8080, function () {
+      server.listen(JSON.parse(responseBody).timer.port || 8080, function () {
         console.log('~~ server started at ', this.address().address, ':', this.address().port)
         require('./lib/core/timerScheduler').run(true);
       })
